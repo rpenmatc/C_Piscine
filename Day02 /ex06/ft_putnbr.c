@@ -1,59 +1,49 @@
-#include <unistd.h>
-int ft_putchar(char c)
+int ft_putchar(char c);
+
+int get_nth_digit(int n, int number)
 {
-    write(1, &c,1);
-    return(0);
-}
+    int i;
 
-int find_digit(int n, int number)
-{    
-    i = 1
-    while(i < n)
-    {
-        number /= 10
-        i++;
-    }
-    return 0;
-}
-
-int length_of_numbers(int number)
-{  
-    int i = 0
-    if (number > 0)
+    i = 1;
+    while (i < n)
     {
         number /= 10;
         i++;
-        return i;
-    } 
-    if else (number < 0)
+    }
+    return number % 10;
+}
+
+int get_num_length(int number)
+{
+    int i;
+
+    i = 0;
+    while (number > 0)
     {
-        
-    } 
-    else 
+        number /= 10;
+        i++;
+    }
+    return i;
+}
+
+void ft_putnbr(int n)
+{
+    if (n == 0)
     {
-        return 0;
-}
-}
-
-
-void ft_putnbr(int nb)
- {
-     length = length_of_numbers
-      if (n==0)
-      {
-          ft_putchar('0');
-          ft_putchar('\n');
-          return;
-      } 
-      else if (n < 0)
-      {
-          ft_putchar('-')
-          n *= -1;
-      }
+        ft_putchar('0');
+        ft_putchar('\n');
+        return;
+    }
+    else if (n < 0)
+    {
+        ft_putchar('-');
+        n *= -1;
+    }
+    int i = get_num_length(n);
+    while (i > 0)
+    {
+        ft_putchar(get_nth_digit(i, n) + '0');
+        i--;
+    }
 }
 
-
-int main() {
-    ft_putnbr(10);
-    return(0);
-} 
